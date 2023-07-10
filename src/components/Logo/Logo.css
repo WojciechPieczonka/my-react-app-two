@@ -1,0 +1,8 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(177, 96, 96);
+  width: 150px;
+  height: 150px;
+}

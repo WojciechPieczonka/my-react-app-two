@@ -1,0 +1,11 @@
+.app-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  height: 150px;
+  background-color: rgb(62, 171, 165);
+  font-size: 30px;
+  margin-left: 50px;
+}
