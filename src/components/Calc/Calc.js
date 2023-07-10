@@ -71,13 +71,15 @@ const Calc = () => {
       </button>
       <p className="to">To:</p>
       <div className="recalculated">
-        <input
-          type="number"
-          className="converted radius-border"
-          id="converted"
-          value={convertedValue}
-          disabled
-        />
+        <div className="output radius-border converted">
+          <output
+            className="converted radius-border output"
+            id="converted"
+            htmlFor="input"
+          >
+            {convertedValue}
+          </output>
+        </div>
       </div>
       <p>PLN</p>
     </div>
