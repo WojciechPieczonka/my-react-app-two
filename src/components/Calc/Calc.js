@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./Calc.css";
 
 const Calc = () => {
-  // eslint-disable-next-line no-unused-vars
   const [inputValue, setInputValue] = useState(0);
-  // eslint-disable-next-line no-unused-vars
   const [convertedValue, setConvertedValue] = useState(0);
-  // eslint-disable-next-line no-unused-vars
   const [selectedCurrency, setSelectedCurrency] = useState("eur");
 
   const handleInputChange = (e) => {
@@ -22,14 +19,21 @@ const Calc = () => {
     axios
       .get(`https://api.nbp.pl/api/exchangerates/rates/a/${selectedCurrency}/`)
       .then((response) => {
-        const mid = response.data.rates[0].mid;
-        const convertedValue = mid * inputValue;
-        setConvertedValue(convertedValue);
+        const mid = response.data?.rates?.[0]?.mid;
+        if (mid) {
+          const convertedValue = mid * inputValue;
+          setConvertedValue(convertedValue);
+        } else {
+          alert(
+            "Sorry, there was an error while fetching the currency rate, please try later"
+          );
+        }
       })
       .catch((err) => {
         console.error(err);
       });
   };
+
   const handleConvertClick = () => {
     if (inputValue >= 0.01) {
       convertValue();
