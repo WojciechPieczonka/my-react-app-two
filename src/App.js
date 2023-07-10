@@ -5,7 +5,6 @@ import Calc from "./components/Calc/Calc";
 
 const App = () => {
   return (
-    <body>
       <div className="center">
         <header className="main">
           <Logo></Logo>
@@ -13,7 +12,6 @@ const App = () => {
         </header>
         <Calc></Calc>
       </div>
-    </body>
   );
 };
 
