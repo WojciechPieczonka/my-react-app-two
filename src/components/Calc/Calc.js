@@ -1,6 +1,40 @@
 import "./Calc.css";
+// eslint-disable-next-line
+import React, { useState } from "react";
+// eslint-disable-next-line
+import axios from "axios";
 
 const Calc = () => {
+  const [inputValue, setInputValue] = useState(0);
+  const [convertedValue, setConvertedValue] = useState(0);
+  const [selectedCurrency, setSelectedCurrency] = useState("eur");
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSeletChange = (e) => {
+    setSelectedCurrency(e.target.value);
+  };
+
+  const convertValue = () => {
+    axios
+      .get(`https://api.nbp.pl/api/exchangerates/rates/a/${selectedCurrency}/`)
+      .then((response) => {
+        const mid = response.data.rates[0].mid;
+        const convertedValue = mid * inputValue;
+        setConvertedValue(convertedValue);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+  const handleConvertClick = () => {
+    if (inputValue >= 0.01) {
+      convertValue();
+    }
+  };
+
   return (
     <div className="recalculate radius-border">
       <input
@@ -9,14 +43,25 @@ const Calc = () => {
         placeholder=" to convert"
         className="amount radius-border"
         id="input"
-        value="0"
+        value={inputValue}
+        onChange={handleInputChange}
       />
-      <select name="currency" id="select" className="currencies radius-border">
+      <select
+        name="currency"
+        id="select"
+        className="currencies radius-border"
+        value={selectedCurrency}
+        onChange={handleSeletChange}
+      >
         <option value="eur">EUR</option>
         <option value="usd">USD</option>
         <option value="chf">CHF</option>
       </select>
-      <button className="convert-bnt radius-border" id="convertBtn">
+      <button
+        className="convert-bnt radius-border"
+        id="convertBtn"
+        onClick={handleConvertClick}
+      >
         Convert!
       </button>
       <p className="to">To:</p>
@@ -25,7 +70,7 @@ const Calc = () => {
           type="number"
           className="converted radius-border"
           id="converted"
-          value="0"
+          value={convertedValue}
           disabled
         />
       </div>

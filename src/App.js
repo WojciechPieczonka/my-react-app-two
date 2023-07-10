@@ -2,6 +2,8 @@ import "./App.css";
 import Logo from "./components/Logo/Logo";
 import Name from "./components/Name/Name";
 import Calc from "./components/Calc/Calc";
+import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
   return (
