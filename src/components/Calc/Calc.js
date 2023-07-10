@@ -1,12 +1,6 @@
-import "./Calc.css";
-{
-  eslint - disable - next - line;
-}
 import React, { useState } from "react";
-{
-  eslint - disable - next - line;
-}
 import axios from "axios";
+import "./Calc.css";
 
 const Calc = () => {
   const [inputValue, setInputValue] = useState(0);
@@ -82,4 +76,5 @@ const Calc = () => {
     </div>
   );
 };
+
 export default Calc;
