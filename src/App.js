@@ -3,20 +3,18 @@ import Logo from "./components/Logo/Logo";
 import Name from "./components/Name/Name";
 import Calc from "./components/Calc/Calc";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <body>
-        <div className="center">
-          <div className="main">
-            <Logo></Logo>
-            <Name></Name>
-          </div>
-          <Calc></Calc>
-        </div>
-      </body>
-    </div>
+    <body>
+      <div className="center">
+        <header className="main">
+          <Logo></Logo>
+          <Name></Name>
+        </header>
+        <Calc></Calc>
+      </div>
+    </body>
   );
-}
+};
 
 export default App;
