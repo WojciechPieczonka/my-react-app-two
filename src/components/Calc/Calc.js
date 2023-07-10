@@ -3,11 +3,11 @@ import axios from "axios";
 import "./Calc.css";
 
 const Calc = () => {
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-unused-vars
   const [inputValue, setInputValue] = useState(0);
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-unused-vars
   const [convertedValue, setConvertedValue] = useState(0);
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-unused-vars
   const [selectedCurrency, setSelectedCurrency] = useState("eur");
 
   const handleInputChange = (e) => {
