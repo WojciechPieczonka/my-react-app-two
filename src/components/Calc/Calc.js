@@ -1,7 +1,11 @@
 import "./Calc.css";
-eslint - disable - next - line;
+{
+  eslint - disable - next - line;
+}
 import React, { useState } from "react";
-eslint - disable - next - line;
+{
+  eslint - disable - next - line;
+}
 import axios from "axios";
 
 const Calc = () => {
