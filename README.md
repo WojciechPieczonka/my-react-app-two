@@ -1,3 +1,7 @@
+Here is a reworked my second web application (Currency_to_PLN_converter) in JavaScript, HTML and CSS for React.
+
+Click link to check: https://my-react-project-two.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
